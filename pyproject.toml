@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "satnogs-unwinder"
+version = "0.1.0"
+authors = [
+  { name="Mark Jessop", email="vk5qi@rfhead.net" },
+]
+description = "SatNOGS Rotator Homing: Move an absolute-position Rotator to an *absolute* position, in small steps."
+readme = "README.md"
+requires-python = ">=3.6c"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = { file = "LICENSE" }
+dependencies = [
+  "requests",
+]
+
+[project.scripts]
+satnogs-unwind = "satnogs_unwinder.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/darksidelemm/satnogs-unwinder"
+Issues = "https://github.com/darksidelemm/satnogs-unwinder/issues"
+
+[tool.setuptools]
+packages = ["satnogs_unwinder",]
+
+#[tool.setuptools.packages.find]
+#where = ["."]
+#include = ["satnogs*"]  # alternatively: `exclude = ["additional*"]`
+#namespaces = false

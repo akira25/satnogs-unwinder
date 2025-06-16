@@ -26,11 +26,11 @@ from dateutil.tz import *
 
 class ROTCTLD(object):
     """ rotctld (hamlib) communication class """
-    # Note: This is a massive hack. 
+    # Note: This is a massive hack.
 
-    def __init__(self, 
-        hostname="127.0.0.1", 
-        port=4533, 
+    def __init__(self,
+        hostname="127.0.0.1",
+        port=4533,
         timeout=5,
         poll_rate=5,
         movement_threshold=5.0,
@@ -203,7 +203,7 @@ def get_next_rise_azimuth(station_id=1, dev=False):
             _request_url = _r.links['next']['url']
         else:
             _more_data = False
-    
+
 
     # Observations are not always provided in time-sorted order, so we need to search for the earliest one.
     # If we don't find one that's sooner than one day ahead, just go to the home position.
@@ -231,8 +231,7 @@ def get_next_rise_azimuth(station_id=1, dev=False):
 
 
 
-if __name__ == "__main__":
-
+def main():
     # Read in command line arguments.
     parser = argparse.ArgumentParser()
     parser.add_argument('--station_id', type=int, default=-1, help="SatNOGS Station ID")
@@ -336,12 +335,5 @@ if __name__ == "__main__":
     logging.info("Elapsed time: %d seconds" % (time.time() - _start_time))
 
 
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    main()
